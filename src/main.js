@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuelidate from "vuelidate";
+import Paginate from "vuejs-paginate";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
@@ -23,6 +24,7 @@ Vue.filter("date", dateFilter);
 Vue.filter("currency", currencyFilter);
 Vue.directive("tooltip", tooltipDirective);
 Vue.component("Loader", Loader);
+Vue.component('paginate', Paginate);
 
 const firebaseConfig = {
   apiKey: "AIzaSyCtDexlgJi38Ri3c3YgmcfO18v8WcC9So0",
@@ -39,7 +41,7 @@ firebase.initializeApp(firebaseConfig);
 let app;
 
 firebase.auth().onAuthStateChanged(() => {
-  if(!app) {
+  if (!app) {
     app = new Vue({
       router,
       store,
