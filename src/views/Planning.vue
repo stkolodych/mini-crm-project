@@ -36,6 +36,11 @@ import currencyFilter from "@/filters/currency.filter";
 
 export default {
   name: "planning",
+  metaInfo() {
+    return {
+      title: this.$title("Menu_Planning")
+    };
+  },
   data: () => ({
     loading: true,
     categories: []
@@ -62,7 +67,9 @@ export default {
         percent < 60 ? "green" : percent < 100 ? "yellow" : "red";
 
       const tooltipValue = cat.limit - spend;
-      const tooltip = `${tooltipValue < 0 ? 'Превышение на' : 'Осталось'} ${currencyFilter(Math.abs(tooltipValue))}`
+      const tooltip = `${
+        tooltipValue < 0 ? "Превышение на" : "Осталось"
+      } ${currencyFilter(Math.abs(tooltipValue))}`;
 
       return {
         ...cat,
