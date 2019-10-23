@@ -20,7 +20,7 @@ export default {
                 commit('setInfo', info)
             } catch (e) {}
         },
-        async updateInfo ({dispatch, commit, getters}, toUpdate) {
+        async updateInfo({dispatch, commit, getters}, toUpdate) {
             try {
                 const uid = await dispatch('getUid');
                 const updateData = {...getters.info, ...toUpdate}
